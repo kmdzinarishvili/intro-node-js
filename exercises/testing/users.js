@@ -9,11 +9,13 @@ const users = new Array(20).fill(0)
 
 // simulate async db call with promise
 const findUser = (id) => new Promise((resolve, reject) => {
-  const user = users.find(user => user.id === id)
+  console.log(id)
+  const user = users.find((user)=> user.id === parseInt(id))
+  console.log(user)
   if (user) {
     return resolve(user)
   }
-  reject(new Error(`No user with id "${id}"`))
+  return reject(new Error(`No user with id ${id}`))
 })
 
 // simulate async db call with promise
